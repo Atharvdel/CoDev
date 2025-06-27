@@ -35,13 +35,13 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>SynCode - Real-time Collaborative Code Editor</title>
-        <meta name="description" content="Join or create a room to start collaborative coding in real-time with SynCode" />
+        <title>CoDev - Real-time Collaborative Code Editor</title>
+        <meta name="description" content="Join or create a room to start collaborative coding in real-time with CoDev" />
       </Helmet>
       
       <div className="homePageWrapper">
         <div className="formWrapper">
-          <img className="homePageLogo" src="/syncode.png" alt="SynCode Logo" />
+          <img className="homePageLogo" src="/CoDev.png" alt="CoDev Logo" />
           
           <div className="inputGroup">
             <input

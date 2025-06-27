@@ -9,15 +9,15 @@ const io = new Server(server, {
   cors: {
     origin: [
       "http://localhost:3000", 
-      "https://syn-code-one.vercel.app"  // ✅ Removed trailing slash
+      "https://codev-sand.vercel.app" 
     ],
     methods: ["GET", "POST"],
-    credentials: true  // ✅ Added this for better CORS support
+    credentials: true 
   }
 });
 
 // Store users by socketId, not globally
-const userSocketMap = {}; // { socketId: username }
+const userSocketMap = {};
 const roomLanguages = {};
 
 function getAllConnectedClients(roomId) {
@@ -38,10 +38,9 @@ function isUsernameAvailable(roomId, username, excludeSocketId = null) {
   );
 }
 
-// ✅ Health check routes
 app.get('/', (req, res) => {
   res.json({ 
-    message: 'SynCode Server is running!', 
+    message: 'CoDev Server is running!', 
     status: 'ok',
     timestamp: new Date().toISOString(),
     version: '1.0.0'
@@ -62,7 +61,6 @@ io.on('connection', (socket) => {
   socket.on(ACTIONS.JOIN, ({ roomId, username }) => {
     console.log(`Join attempt: ${username} -> room ${roomId}`);
     
-    // Check if username is already taken in this room
     if (!isUsernameAvailable(roomId, username)) {
       console.log(`Username ${username} already taken in room ${roomId}`);
       socket.emit('username_taken', { 
@@ -84,7 +82,6 @@ io.on('connection', (socket) => {
 
     const clients = getAllConnectedClients(roomId);
     
-    // ✅ Emit to the entire room (simpler approach)
     io.to(roomId).emit(ACTIONS.JOINED, {
       clients,
       username,
@@ -113,13 +110,12 @@ io.on('connection', (socket) => {
     console.log(`${username} (${socket.id}) disconnecting from rooms:`, rooms);
     
     rooms.forEach((roomId) => {
-      if (roomId !== socket.id) { // Skip the socket's own room
+      if (roomId !== socket.id) { 
         socket.in(roomId).emit(ACTIONS.DISCONNECTED, {
           socketId: socket.id,
           username: username,
         });
 
-        // Clean up room language if empty
         setTimeout(() => {
           const remainingClients = getAllConnectedClients(roomId);
           if (remainingClients.length === 0) {
@@ -142,6 +138,6 @@ io.on('connection', (socket) => {
 
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => {
-  console.log(`✅ SynCode Server running on port ${PORT}`);
-  console.log(`✅ CORS enabled for: http://localhost:3000, https://syn-code-one.vercel.app`);
+  console.log(`✅ CoDev Server running on port ${PORT}`);
+  console.log(`✅ CORS enabled for: http://localhost:3000, https://codev-sand.vercel.app`);
 });

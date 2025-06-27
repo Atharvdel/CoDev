@@ -16,7 +16,7 @@ import ACTIONS from '../utils/Actions';
 const Editor = ({ socketRef, roomId, onCodeChange, onLanguageChange }) => {
   const editorRef = useRef(null);
   const [language, setLanguage] = useState('javascript');
-  const [code, setCode] = useState('// Welcome to SynCode!\nconsole.log("Hello, World!");');
+  const [code, setCode] = useState('// Welcome to CoDev!\nconsole.log("Hello, World!");');
   const [showOutput, setShowOutput] = useState(false);
   const [output, setOutput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -46,12 +46,12 @@ const Editor = ({ socketRef, roomId, onCodeChange, onLanguageChange }) => {
 
   const getExampleCode = (lang) => {
     const examples = {
-      javascript: '// Welcome to SynCode!\nconsole.log("Hello, World!");',
-      python: '# Welcome to SynCode!\nprint("Hello, World!")',
+      javascript: '// Welcome to CoDev!\nconsole.log("Hello, World!");',
+      python: '# Welcome to CoDev!\nprint("Hello, World!")',
       java: 'public class Main {\n    public static void main(String[] args) {\n        System.out.println("Hello, World!");\n    }\n}',
       cpp: '#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << "Hello, World!" << endl;\n    return 0;\n}',
-      html: '<!DOCTYPE html>\n<html>\n<head>\n    <title>Hello World</title>\n</head>\n<body>\n    <h1>Hello, World!</h1>\n    <p>Welcome to SynCode!</p>\n</body>\n</html>',
-      css: '/* Welcome to SynCode! */\nbody {\n    font-family: Arial, sans-serif;\n    background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);\n    color: white;\n    text-align: center;\n    padding: 50px;\n}\n\nh1 {\n    font-size: 3em;\n    margin-bottom: 20px;\n}',
+      html: '<!DOCTYPE html>\n<html>\n<head>\n    <title>Hello World</title>\n</head>\n<body>\n    <h1>Hello, World!</h1>\n    <p>Welcome to CoDev!</p>\n</body>\n</html>',
+      css: '/* Welcome to CoDev! */\nbody {\n    font-family: Arial, sans-serif;\n    background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);\n    color: white;\n    text-align: center;\n    padding: 50px;\n}\n\nh1 {\n    font-size: 3em;\n    margin-bottom: 20px;\n}',
     };
     return examples[lang] || '';
   };

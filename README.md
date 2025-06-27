@@ -1,5 +1,3 @@
-![logo](https://github.com/re-fract/SynCode/blob/main/client/public/syncode.png)
-
 A collaborative, real-time code editor where users can seamlessly code together. It provides a platform for multiple users to enter a room, share a unique room ID, and collaborate on code simultaneously.
 
 ## 🔮 Features
@@ -13,7 +11,7 @@ A collaborative, real-time code editor where users can seamlessly code together.
 
 ## 🚀 Live Preview
 
-You can view the live preview of the project [here](https://syn-code-one.vercel.app/).
+You can view the live preview of the project [here](https://codev-sand.vercel.app/).
 
 ## ⚙️ Installation
 
@@ -22,7 +20,7 @@ You can view the live preview of the project [here](https://syn-code-one.vercel.
 1. **Fork this repository:** Click the Fork button located in the top-right corner of this page.
 2. **Clone the repository:**
    ```bash
-   git clone https://github.com/re-fract/SynCode.git
+   git clone https://github.com/Atharvdel/CoDev.git
    ```
 3. **Create .env file:**
    Inside the client and server directories create `.env` and set:

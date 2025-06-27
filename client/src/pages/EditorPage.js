@@ -132,14 +132,14 @@ const EditorPage = () => {
   return (
     <>
       <Helmet>
-        <title>{`main.${getFileExtension(currentLanguage)} - Room ${roomId.slice(0, 8)} | SynCode`}</title>
+        <title>{`main.${getFileExtension(currentLanguage)} - Room ${roomId.slice(0, 8)} | CoDev`}</title>
         <meta name="description" content={`Collaborative coding session in ${currentLanguage} - Room ${roomId}`} />
       </Helmet>
 
       <div className="mainWrap">
         <aside className="aside">
           <div className="logo">
-            <img className="logoImage" src="/syncode.png" alt="SynCode Logo" />
+            <img className="logoImage" src="/CoDev.png" alt="CoDev Logo" />
           </div>
           
           <div className="asideInner">
