@@ -125,6 +125,30 @@ const EditorPage = () => {
     return extensions[lang] || lang;
   };
 
+  // Add sparkle effect on mouse move for sidebar logo
+  const handleLogoMouseMove = (e) => {
+    const container = e.currentTarget;
+    const rect = container.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const sparkle = document.createElement('div');
+    sparkle.style.position = 'absolute';
+    sparkle.style.left = x + 'px';
+    sparkle.style.top = y + 'px';
+    sparkle.style.width = '3px';
+    sparkle.style.height = '3px';
+    sparkle.style.background = '#00ff41';
+    sparkle.style.borderRadius = '50%';
+    sparkle.style.pointerEvents = 'none';
+    sparkle.style.animation = 'sparkle 1s ease-out forwards';
+    sparkle.style.zIndex = '1000';
+    
+    container.appendChild(sparkle);
+    
+    setTimeout(() => sparkle.remove(), 1000);
+  };
+
   if (!location.state) {
     return <Navigate to="/" />;
   }
@@ -134,12 +158,27 @@ const EditorPage = () => {
       <Helmet>
         <title>{`main.${getFileExtension(currentLanguage)} - Room ${roomId.slice(0, 8)} | CoDev`}</title>
         <meta name="description" content={`Collaborative coding session in ${currentLanguage} - Room ${roomId}`} />
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet" />
       </Helmet>
 
       <div className="mainWrap">
         <aside className="aside">
           <div className="logo">
-            <img className="logoImage" src="/CoDev.png" alt="CoDev Logo" />
+            {/* Animated CoDev Logo for Sidebar */}
+            <div 
+              className="codev-logo-sidebar" 
+              onMouseMove={handleLogoMouseMove}
+            >
+              <div className="circuit-bg-sidebar"></div>
+              <div className="particles-sidebar">
+                <div className="particle-sidebar"></div>
+                <div className="particle-sidebar"></div>
+                <div className="particle-sidebar"></div>
+                <div className="particle-sidebar"></div>
+                <div className="particle-sidebar"></div>
+              </div>
+              <div className="codev-logo-text-sidebar">CoDev</div>
+            </div>
           </div>
           
           <div className="asideInner">
